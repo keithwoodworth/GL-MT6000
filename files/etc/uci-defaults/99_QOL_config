@@ -23,7 +23,7 @@ set wireless.default_radio0.ocv='0'
 # Wireless radio1 specific settings
 set wireless.radio1.country='PT'
 set wireless.radio1.band='5g'
-set wireless.radio1.channel='44'
+set wireless.radio1.channel='48'
 set wireless.radio1.htmode='HE80'
 set wireless.radio1.txpower='20'
 set wireless.radio1.cell_density='1'
