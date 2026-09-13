@@ -54,13 +54,13 @@ jobs:
           sudo apt autoremove -y && sudo apt clean -y
 
       - name: Checkout remote repository
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           repository: ${{ env.REMOTE_REPOSITORY }}
           ref: ${{ needs.check_commits.outputs.remote_branch }}
 
       - name: Checkout current repository
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           path: "builder_repo"
 
@@ -105,7 +105,7 @@ jobs:
           cd firmware && sha256sum openwrt-*-sysupgrade.bin >sha256sums ||:
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v7.0.0
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: gl-mt6000-firmware
           path: firmware/*
@@ -126,6 +126,7 @@ jobs:
           - **Wireguard VPN**
           - **Policy Based Routing**
           - **Ad Block Fast**
+          - **My custom nordvpnlite installer script**
           - **REMOVED:** odhcp, upnp, iptables, avahi, samba, usb storage..." --title "OpenWrt Custom Release for Flint 2 (${{ needs.check_commits.outputs.release_prefix }}-${RELEASE_DATE})" firmware/*
 
       - name: Clean up old releases
